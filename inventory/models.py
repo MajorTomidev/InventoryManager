@@ -14,7 +14,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = ('Category')
         verbose_name_plural = ('Categories')
-        ordering = ['-created']
+     
 
 # MANUFACTURER MODEL--------------------------------------------------------------------------------
 class Manufacturer(models.Model):
@@ -22,7 +22,7 @@ class Manufacturer(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     products_quantity = models.PositiveIntegerField()
     location = models.TextField()
-    conatact_name = models.CharField(max_length=200)
+    contact_name = models.CharField(max_length=200)
     email = models.EmailField(blank=True, null=True)
     phone_number = models.CharField(max_length=11)
 
@@ -32,12 +32,12 @@ class Manufacturer(models.Model):
     class Meta:
         verbose_name = ('Manufacturer')
         verbose_name_plural = ('Manufacturers')
-        ordering = ['-created']
+        
 
 # PRODUCT MODEL--------------------------------------------------------------------------------------
 class Product(models.Model):
     image = models.ImageField(upload_to='products_images', blank=True, null=True)
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='my_products', on_delete=models.CASCADE)
     brand = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()

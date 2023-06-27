@@ -20,6 +20,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = [ "first_name", "phone_number", "payment_status ", "delivery_status", "refund_requested", "refund_granted" ]
-    list_filter = [ "first_name", "payment_status ", "delivery_status", "refund_requested", "refund_granted", "created" ]
+    list_display = [ "first_name", "phone_number", "delivery_status", "refund_requested", "refund_granted" ]
+    list_filter = [ "first_name",  "delivery_status", "refund_requested", "refund_granted", "created" ]
     search_fields = [ "first_name", "last_name", "email", "phone_number" ]
